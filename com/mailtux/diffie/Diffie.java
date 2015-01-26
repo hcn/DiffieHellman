@@ -19,7 +19,7 @@ public class Diffie {
 		
 		
 		Scanner in = new Scanner(System.in);
-		System.out.print("Gi inn base(g):");
+		System.out.print("Gi inn base(g):   ");
 		int g = in.nextInt();
 		System.out.print("Gi inn modulus(p):");
 		int p=in.nextInt();

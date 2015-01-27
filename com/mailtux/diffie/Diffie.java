@@ -19,39 +19,41 @@ public class Diffie {
 		
 		
 		Scanner in = new Scanner(System.in);
-		System.out.print("Gi inn base(g):   ");
+		System.out.print("Hvem er du?   ");
+		String hvem=in.next();
+		System.out.print(hvem+" Gi inn base(g):   ");
 		int g = in.nextInt();
-		System.out.print("Gi inn modulus(p):");
+		System.out.print(hvem+" Gi inn modulus(p):");
 		int p=in.nextInt();
-		System.out.print("Gi inn din hemmelige nøkkel(a):");
+		System.out.print(hvem+" Gi inn din hemmelige nøkkel(a):");
 		int a=in.nextInt();
 
 		BigInteger A=BigInteger.valueOf(g);
 		A=A.pow(a);
 		A=A.mod(BigInteger.valueOf(p));
 		
-		System.out.println("Ditt offentlige tall(A) er:"+A);
+		System.out.println(hvem+" Ditt offentlige tall(A) er:"+A);
 		
-		System.out.print("Gi inn ditt motpartens offentlige tall(B):");
+		System.out.print(hvem+" Gi inn ditt motpartens offentlige tall(B):");
 		int B=in.nextInt();
 		
 		BigInteger hemmelighet=BigInteger.valueOf(B);
 		hemmelighet=hemmelighet.pow(a);
 		hemmelighet=hemmelighet.mod(BigInteger.valueOf(p));
-		System.out.println("Shared secret er:"+hemmelighet);
+		System.out.println(hvem+" Shared secret er:"+hemmelighet);
 		
-		System.out.print("Gi inn melding:");
+		System.out.print(hvem+" Gi inn melding:");
 		String klar=in.next();
 		
 		
 		
 		String kodet=koder.encode(klar,hemmelighet.intValue());
-		System.out.println("Kodet melding:"+kodet);
+		System.out.println(hvem+" Kodet melding:"+kodet);
 		
-		System.out.print("Gi inn kodet melding:");
+		System.out.print(hvem+" Gi inn kodet melding:");
 		String andreKodet=in.next();
 		String dekodet=koder.decode(andreKodet,hemmelighet.intValue());
-		System.out.println("Dekodet melding:"+dekodet);
+		System.out.println(hvem+" Dekodet melding:"+dekodet);
 		
 		
 		

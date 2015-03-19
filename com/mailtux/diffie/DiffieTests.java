@@ -35,15 +35,7 @@ public class DiffieTests {
 			
 	};
 
-	@Test
-	public void big() {
-		BigInteger b=BigInteger.valueOf(1063);
-		b=b.pow(47*763);
-		String val=b.toString();
-		System.out.println(val.length());
-		BigInteger sekunder=new BigInteger("400000000000000000");
-//		System.out.println(val);
-	}
+
 	
 	@Test
 	public void test() {

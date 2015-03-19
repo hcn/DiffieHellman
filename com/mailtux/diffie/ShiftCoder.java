@@ -1,16 +1,7 @@
 package com.mailtux.diffie;
 
-import static org.junit.Assert.*;
-
-import java.math.BigInteger;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
-
-import org.junit.Ignore;
-import org.junit.Test;
 
 public class ShiftCoder {
 	
@@ -57,12 +48,6 @@ public class ShiftCoder {
 			  krypt.append(k);
 			}
 		}
-		
-//		System.out.println("Krypto:"+krypt.toString());
-		
-		
-		
-		
 		
 		return krypt.toString();
 	}

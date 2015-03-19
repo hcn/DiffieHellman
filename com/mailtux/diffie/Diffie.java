@@ -28,24 +28,18 @@ public class Diffie {
 		System.out.print(hvem+" Gi inn din hemmelige nøkkel(a):");
 		int a=in.nextInt();
 
-		BigInteger A=BigInteger.valueOf(g);
-		A=A.pow(a);
-		A=A.mod(BigInteger.valueOf(p));
+		BigInteger A = beregnOffentlig(g, p, a);
 		
 		System.out.println(hvem+" Ditt offentlige tall(A) er:"+A);
 		
 		System.out.print(hvem+" Gi inn ditt motpartens offentlige tall(B):");
 		int B=in.nextInt();
 		
-		BigInteger hemmelighet=BigInteger.valueOf(B);
-		hemmelighet=hemmelighet.pow(a);
-		hemmelighet=hemmelighet.mod(BigInteger.valueOf(p));
+		BigInteger hemmelighet = beregnHemmelig(B, p, a);
 		System.out.println(hvem+" Shared secret er:"+hemmelighet);
 		
 		System.out.print(hvem+" Gi inn melding:");
 		String klar=in.next();
-		
-		
 		
 		String kodet=koder.encode(klar,hemmelighet.intValue());
 		System.out.println(hvem+" Kodet melding:"+kodet);
@@ -54,12 +48,22 @@ public class Diffie {
 		String andreKodet=in.next();
 		String dekodet=koder.decode(andreKodet,hemmelighet.intValue());
 		System.out.println(hvem+" Dekodet melding:"+dekodet);
+
 		
-		
-		
-		
-		
-		
+	}
+
+	private BigInteger beregnOffentlig(int g, int p, int a) {
+		BigInteger A=BigInteger.valueOf(g);
+		A=A.pow(a);
+		A=A.mod(BigInteger.valueOf(p));
+		return A;
+	}
+	
+	private BigInteger beregnHemmelig(int g, int p, int a) {
+		BigInteger A=BigInteger.valueOf(g);
+		A=A.pow(a);
+		A=A.mod(BigInteger.valueOf(p));
+		return A;
 	}
 
 }
